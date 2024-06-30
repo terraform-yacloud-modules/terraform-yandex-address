@@ -1,4 +1,4 @@
-module "iam_accounts" {
+module "address" {
   source = "../"
 
   ip_address_name = "test-pip"
