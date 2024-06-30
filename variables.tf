@@ -1,9 +1,12 @@
-variable "external_ip_name" {
+variable "ip_address_name" {
   type = string
 }
 
-variable "zone" {
+variable "deletion_protection" {
+  type = string
+}
+
+variable "zone_name" {
   type        = string
   description = "Zone name"
-  default     = "ru-central1-a"
 }

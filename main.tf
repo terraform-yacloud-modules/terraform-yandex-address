@@ -1,7 +1,7 @@
 resource "yandex_vpc_address" "addr" {
-  name = "<имя_IP-адреса>"
-  deletion_protection = "<защита_от_удаления>"
+  name = var.ip_address_name
+  deletion_protection  = var.deletion_protection == null ? null : var.deletion_protection
   external_ipv4_address {
-    zone_id = "<зона_доступности>"
+    zone_id = var.zone_name
   }
 }
