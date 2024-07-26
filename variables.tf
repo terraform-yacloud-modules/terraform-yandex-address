@@ -1,10 +1,12 @@
-variable "ip_address_name" {
+variable "name" {
+  description = "Name of the address"
   type = string
 }
 
-variable "zone" {
+variable "description" {
+  description = "An optional description of this resource"
   type        = string
-  description = "Zone name"
+  default     = null
 }
 
 variable "folder_id" {
@@ -18,12 +20,37 @@ variable "deletion_protection" {
   default = null
 }
 
+variable "labels" {
+  description = "Labels to apply to this resource"
+  type        = map(string)
+  default     = {}
+}
+
+variable "zone_id" {
+  description = "Zone for allocating address"
+  type        = string
+  default     = null
+}
+
 variable "ddos_protection_provider" {
-  type = string
-  default = null
+  description = "Enable DDOS protection. Possible values are: 'qrator'"
+  type        = string
+  default     = null
 }
 
 variable "outgoing_smtp_capability" {
-  type = string
+  description = "Wanted outgoing smtp capability"
+  type        = string
+  default     = null
+}
+
+variable "dns_record" {
+  description = "DNS record specification of address"
+  type = object({
+    fqdn        = string
+    dns_zone_id = string
+    ttl         = optional(number)
+    ptr         = optional(bool)
+  })
   default = null
 }

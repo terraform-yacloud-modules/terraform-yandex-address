@@ -1,7 +1,34 @@
+module "dns-zone" {
+
+  source = "git::https://github.com/terraform-yacloud-modules/terraform-yandex-dns.git//modules/zone"
+
+  folder_id   = "xxxx"
+  name        = "my-private-zone"
+  description = "desc"
+
+  labels = {
+    label1 = "label-1-value"
+  }
+
+  zone             = "dns-zone."
+  is_public        = true
+  private_networks = ["xxxxx"] # network_id
+}
+
 module "address" {
   source = "../"
 
-  ip_address_name = "test-pip"
-  folder_id = "xxx"
-  zone = "ru-central1-a"
+  name        = "test-pip"
+  description = "Example address description"
+  folder_id   = "xxxx"
+  labels      = {
+    environment = "production"
+  }
+  zone_id = "ru-central1-a"
+  dns_record = {
+    fqdn        = "test"
+    dns_zone_id = module.dns-zone.id
+    ttl         = 300
+    ptr         = true
+  }
 }
