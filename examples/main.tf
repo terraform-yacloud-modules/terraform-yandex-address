@@ -2,7 +2,6 @@ module "dns-zone" {
 
   source = "git::https://github.com/terraform-yacloud-modules/terraform-yandex-dns.git//modules/zone"
 
-  folder_id   = "xxxx"
   name        = "my-private-zone"
   description = "desc"
 
@@ -20,7 +19,6 @@ module "address" {
 
   name        = "test-pip"
   description = "Example address description"
-  folder_id   = "xxxx"
   labels      = {
     environment = "production"
   }

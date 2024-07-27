@@ -9,12 +9,6 @@ variable "description" {
   default     = null
 }
 
-variable "folder_id" {
-  description = "Folder-ID where need to add permissions. If omitted default FOLDER_ID will be used"
-  type        = string
-  default     = null
-}
-
 variable "deletion_protection" {
   type = string
   default = null
