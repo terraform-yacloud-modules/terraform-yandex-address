@@ -4,7 +4,7 @@ resource "yandex_vpc_address" "address" {
   name        = var.name
   description = var.description
   labels      = var.labels
-  folder_id   = var.folder_id == null ? data.yandex_client_config.client.folder_id : var.folder_id
+  folder_id   = data.yandex_client_config.client.folder_id
 
   deletion_protection  = var.deletion_protection
 
