@@ -6,7 +6,7 @@ resource "yandex_vpc_address" "address" {
   labels      = var.labels
   folder_id   = data.yandex_client_config.client.folder_id
 
-  deletion_protection  = var.deletion_protection
+  deletion_protection = var.deletion_protection
 
 
   external_ipv4_address {

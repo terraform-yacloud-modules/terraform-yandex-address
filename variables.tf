@@ -1,6 +1,6 @@
 variable "name" {
   description = "Name of the address"
-  type = string
+  type        = string
 }
 
 variable "description" {
@@ -10,8 +10,9 @@ variable "description" {
 }
 
 variable "deletion_protection" {
-  type = string
-  default = null
+  description = "Flag to enable deletion protection for the resource"
+  type        = string
+  default     = null
 }
 
 variable "labels" {
