@@ -1,3 +1,7 @@
+data "yandex_vpc_network" "default" {
+  name = "default"
+}
+
 module "dns_zone" {
 
   source = "git::https://github.com/terraform-yacloud-modules/terraform-yandex-dns.git//modules/zone?ref=v1.0.0"
@@ -9,9 +13,9 @@ module "dns_zone" {
     label1 = "label-1-value"
   }
 
-  zone             = "dns-zone."
+  zone             = "dns-zone.org.ru."
   is_public        = true
-  private_networks = ["xxxxx"] # network_id
+  private_networks = [data.yandex_vpc_network.default.id] # можете заменить на ваш network_id
 }
 
 module "address" {
