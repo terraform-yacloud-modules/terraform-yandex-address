@@ -4,13 +4,13 @@ variable "name" {
 }
 
 variable "description" {
-  description = "An optional description of this resource"
+  description = "An optional description of the static external IP address resource. Helps identify the purpose of the address."
   type        = string
   default     = null
 }
 
 variable "deletion_protection" {
-  description = "Flag to enable deletion protection for the resource"
+  description = "Flag to enable deletion protection for the resource.When enabled, prevents accidental deletion of the resource."
   type        = string
   default     = null
 }
@@ -34,7 +34,7 @@ variable "ddos_protection_provider" {
 }
 
 variable "outgoing_smtp_capability" {
-  description = "Wanted outgoing smtp capability"
+  description = "Enables outgoing SMTP capability for the static external IP address. Required for sending emails from applications using this IP address."
   type        = string
   default     = null
 }
