@@ -1,5 +1,5 @@
 output "id" {
-  description = "ID of the allocated address"
+  description = "The unique identifier of the allocated static external IP address"
   value       = yandex_vpc_address.address.id
 }
 
@@ -14,7 +14,7 @@ output "description" {
 }
 
 output "folder_id" {
-  description = "Folder ID of the allocated address"
+  description = "The ID of the Yandex Cloud folder where the static external IP address is located."
   value       = yandex_vpc_address.address.folder_id
 }
 
@@ -29,17 +29,17 @@ output "deletion_protection" {
 }
 
 output "external_ipv4_address" {
-  description = "Yandex VPC address"
+  description = "The actual IPv4 address value of the allocated static external IP address."
   value       = yandex_vpc_address.address.external_ipv4_address[0].address
 }
 
 output "external_ipv4" {
-  description = "External IPv4 address details"
+  description = "Complete details of the external IPv4 address configuration, including address, zone, and other metadata."
   value       = yandex_vpc_address.address.external_ipv4_address
 }
 
 output "dns_record" {
-  description = "DNS record details of the allocated address"
+  description = "DNS record configuration details associated with the allocated static external IP address, if configured."
   value       = yandex_vpc_address.address.dns_record
 }
 
