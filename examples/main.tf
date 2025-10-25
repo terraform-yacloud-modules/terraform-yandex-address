@@ -5,7 +5,7 @@ module "network" {
 
   folder_id = data.yandex_client_config.client.folder_id
 
-  blank_name = "redis-vpc-nat-gateway"
+  blank_name = "vpc-address"
   labels = {
     repo = "terraform-yacloud-modules/terraform-yandex-vpc"
   }
@@ -13,9 +13,6 @@ module "network" {
   azs = ["ru-central1-a", "ru-central1-b", "ru-central1-d"]
 
   private_subnets = [["10.10.0.0/24"], ["10.11.0.0/24"], ["10.12.0.0/24"]]
-
-  create_vpc         = true
-  create_nat_gateway = true
 }
 
 module "dns_zone" {
