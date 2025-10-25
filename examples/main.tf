@@ -1,5 +1,21 @@
-data "yandex_vpc_network" "default" {
-  name = "default"
+data "yandex_client_config" "client" {}
+
+module "network" {
+  source = "git::https://github.com/terraform-yacloud-modules/terraform-yandex-vpc.git?ref=v1.0.0"
+
+  folder_id = data.yandex_client_config.client.folder_id
+
+  blank_name = "redis-vpc-nat-gateway"
+  labels = {
+    repo = "terraform-yacloud-modules/terraform-yandex-vpc"
+  }
+
+  azs = ["ru-central1-a", "ru-central1-b", "ru-central1-d"]
+
+  private_subnets = [["10.10.0.0/24"], ["10.11.0.0/24"], ["10.12.0.0/24"]]
+
+  create_vpc         = true
+  create_nat_gateway = true
 }
 
 module "dns_zone" {
@@ -15,7 +31,7 @@ module "dns_zone" {
 
   zone             = "dns-zone.org.ru."
   is_public        = true
-  private_networks = [data.yandex_vpc_network.default.id] # можете заменить на ваш network_id
+  private_networks = [module.network.vpc_id]
 }
 
 module "address" {
