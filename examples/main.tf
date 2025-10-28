@@ -34,12 +34,14 @@ module "dns_zone" {
 module "address" {
   source = "../"
 
-  name        = "test-pip"
-  description = "Example address description"
+  name                = "test-address"
+  description         = "Example address description"
+  deletion_protection = "false"
   labels = {
     environment = "production"
   }
-  zone_id = "ru-central1-a"
+  zone_id                  = "ru-central1-a"
+  ddos_protection_provider = null
   dns_record = {
     fqdn        = "test"
     dns_zone_id = module.dns_zone.id
