@@ -71,7 +71,7 @@ variable "ddos_protection_provider" {
 
 variable "outgoing_smtp_capability" {
   description = "Enables outgoing SMTP capability for the static external IP address. Required for sending emails from applications using this IP address."
-  type        = string
+  type        = bool
   default     = null
 }
 
