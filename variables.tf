@@ -47,6 +47,12 @@ variable "labels" {
   }
 }
 
+variable "folder_id" {
+  description = "Folder ID where the address should be created. Defaults to provider folder_id."
+  type        = string
+  default     = null
+}
+
 variable "zone_id" {
   description = "Zone for allocating address"
   type        = string
@@ -73,6 +79,16 @@ variable "outgoing_smtp_capability" {
   description = "Enables outgoing SMTP capability for the static external IP address. Required for sending emails from applications using this IP address."
   type        = bool
   default     = null
+}
+
+variable "timeouts" {
+  description = "Provider-side timeouts for create/update/delete operations."
+  type = object({
+    create = optional(string)
+    update = optional(string)
+    delete = optional(string)
+  })
+  default = null
 }
 
 variable "dns_record" {
