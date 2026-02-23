@@ -1,3 +1,7 @@
+## v2.8.0 - 2026-02-23
+### Chores
+- dd4389c chore(deps): bump kvendingoldo/git-flow-action from 2.2.0 to 2.16.0 ([#63](https://github.com/terraform-yacloud-modules/terraform-yandex-address/pull/63))
+
 ## v2.7.0
 ## v2.6.0
 ## v2.5.0
