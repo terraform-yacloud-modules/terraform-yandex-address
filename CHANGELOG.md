@@ -1,3 +1,7 @@
+## v2.10.0 - 2026-03-11
+### Features
+- 106c317 feat: add timeouts configuration for yandex_vpc_address resource ([#60](https://github.com/terraform-yacloud-modules/terraform-yandex-address/pull/60))
+
 ## v2.9.0 - 2026-03-02
 ### Chores
 - 14e8b54 chore(deps): bump hashicorp/setup-terraform from 3 to 4 ([#64](https://github.com/terraform-yacloud-modules/terraform-yandex-address/pull/64))
