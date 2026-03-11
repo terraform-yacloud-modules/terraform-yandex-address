@@ -48,4 +48,11 @@ module "address" {
     ttl         = 300
     ptr         = true
   }
+
+  timeouts = {
+    create = "40m"
+    update = "40m"
+    delete = "40m"
+  }
+
 }

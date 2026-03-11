@@ -4,7 +4,7 @@ resource "yandex_vpc_address" "address" {
   name        = var.name
   description = var.description
   labels      = var.labels
-  folder_id   = data.yandex_client_config.client.folder_id
+  folder_id   = coalesce(var.folder_id, data.yandex_client_config.client.folder_id)
 
   deletion_protection = var.deletion_protection
 
@@ -24,4 +24,14 @@ resource "yandex_vpc_address" "address" {
       ptr         = dns_record.value.ptr
     }
   }
+
+  dynamic "timeouts" {
+    for_each = var.timeouts == null ? [] : [var.timeouts]
+    content {
+      create = timeouts.value.create
+      update = timeouts.value.update
+      delete = timeouts.value.delete
+    }
+  }
+  
 }
