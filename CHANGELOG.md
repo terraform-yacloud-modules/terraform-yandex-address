@@ -1,3 +1,7 @@
+## v2.11.0 - 2026-03-23
+### Chores
+- d404af7 chore(deps): bump actions/cache from 5.0.3 to 5.0.4 ([#65](https://github.com/terraform-yacloud-modules/terraform-yandex-address/pull/65))
+
 ## v2.10.0 - 2026-03-11
 ### Features
 - 106c317 feat: add timeouts configuration for yandex_vpc_address resource ([#60](https://github.com/terraform-yacloud-modules/terraform-yandex-address/pull/60))
