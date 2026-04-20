@@ -1,3 +1,7 @@
+## v2.12.0 - 2026-04-20
+### Chores
+- 57d0807 chore(deps): bump actions/cache from 5.0.4 to 5.0.5 ([#66](https://github.com/terraform-yacloud-modules/terraform-yandex-address/pull/66))
+
 ## v2.11.0 - 2026-03-23
 ### Chores
 - d404af7 chore(deps): bump actions/cache from 5.0.3 to 5.0.4 ([#65](https://github.com/terraform-yacloud-modules/terraform-yandex-address/pull/65))
