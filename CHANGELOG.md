@@ -1,3 +1,7 @@
+## v2.15.0 - 2026-08-03
+### Chores
+- 8d6e0ec chore(deps): bump bridgecrewio/checkov-action from 12 to 12.3114.0 ([#69](https://github.com/terraform-yacloud-modules/terraform-yandex-address/pull/69))
+
 ## v2.14.0 - 2026-06-30
 ### Chores
 - 610a06b chore(deps): bump actions/cache from 5.0.5 to 6.1.0 ([#68](https://github.com/terraform-yacloud-modules/terraform-yandex-address/pull/68))
