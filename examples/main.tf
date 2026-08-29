@@ -22,6 +22,8 @@ module "dns_zone" {
 
   source = "git::https://github.com/terraform-yacloud-modules/terraform-yandex-dns.git//modules/zone?ref=v1.0.0"
 
+  folder_id = coalesce(var.folder_id, data.yandex_client_config.client.folder_id)
+
   name        = "my-private-zone"
   description = "desc"
 
