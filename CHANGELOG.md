@@ -1,3 +1,11 @@
+## v2.20.0 - 2026-09-01
+### Bug Fixes
+- 161436a fix: передача folder_id в примере с приоритетом tfvars над YC_FOLDER_ID
+- 2599b28 fix: передача folder_id в примере с приоритетом tfvars над YC_FOLDER_ID
+
+### Miscellaneous
+- d0b8ea4 Merge pull request [#73](https://github.com/terraform-yacloud-modules/terraform-yandex-address/pull/73) from terraform-yacloud-modules/fix-variables-multiline
+
 ## v2.19.0 - 2026-08-31
 ### Chores
 - 45ca28b chore(deps): bump bridgecrewio/checkov-action ([#74](https://github.com/terraform-yacloud-modules/terraform-yandex-address/pull/74))
