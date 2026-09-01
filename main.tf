@@ -33,5 +33,5 @@ resource "yandex_vpc_address" "address" {
       delete = timeouts.value.delete
     }
   }
-  
+
 }
