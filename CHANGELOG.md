@@ -1,3 +1,7 @@
+## v2.27.0 - 2026-10-26
+### Chores
+- 92cdfbd chore(deps): bump bridgecrewio/checkov-action ([#81](https://github.com/terraform-yacloud-modules/terraform-yandex-address/pull/81))
+
 ## v2.26.0 - 2026-10-19
 ### Chores
 - c909ca5 chore(deps): bump bridgecrewio/checkov-action ([#80](https://github.com/terraform-yacloud-modules/terraform-yandex-address/pull/80))
