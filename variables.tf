@@ -59,8 +59,22 @@ variable "zone_id" {
   default     = null
 
   validation {
-    condition     = var.zone_id == null || contains(["ru-central1-a", "ru-central1-b", "ru-central1-d"], var.zone_id)
+    condition     = var.zone_id == null || try(contains(["ru-central1-a", "ru-central1-b", "ru-central1-d"], var.zone_id), false)
     error_message = "Zone must be one of: 'ru-central1-a', 'ru-central1-b', 'ru-central1-d'."
+  }
+}
+
+variable "internal_ipv4_address" {
+  description = "Specification of an internal IPv4 address. When set, a static internal IP address is allocated in the given subnet instead of an external one. The `external_ipv4_address`, `zone_id`, `ddos_protection_provider` and `outgoing_smtp_capability` arguments must be left unset in this case."
+  type = object({
+    subnet_id = string
+    address   = optional(string)
+  })
+  default = null
+
+  validation {
+    condition     = var.internal_ipv4_address == null || try(length(var.internal_ipv4_address.subnet_id) > 0, false)
+    error_message = "Subnet ID must not be empty."
   }
 }
 
@@ -102,17 +116,19 @@ variable "dns_record" {
   default = null
 
   validation {
-    condition = var.dns_record == null || (
+    condition = try(
       length(var.dns_record.fqdn) > 0 &&
       length(var.dns_record.fqdn) <= 253 &&
-      length(var.dns_record.dns_zone_id) > 0
+      length(var.dns_record.dns_zone_id) > 0,
+      true
     )
     error_message = "DNS record FQDN must be 1-253 characters long and DNS zone ID must not be empty."
   }
 
   validation {
-    condition = var.dns_record == null || (
-      var.dns_record.ttl == null || (var.dns_record.ttl >= 60 && var.dns_record.ttl <= 86400)
+    condition = try(
+      var.dns_record.ttl == null || (var.dns_record.ttl >= 60 && var.dns_record.ttl <= 86400),
+      true
     )
     error_message = "TTL must be between 60 and 86400 seconds."
   }

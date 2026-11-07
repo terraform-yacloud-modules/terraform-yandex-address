@@ -24,16 +24,15 @@ module "dns_zone" {
 
   folder_id = coalesce(var.folder_id, data.yandex_client_config.client.folder_id)
 
-  name        = "my-private-zone"
+  name        = "my-public-zone"
   description = "desc"
 
   labels = {
     label1 = "label-1-value"
   }
 
-  zone             = "dns-zone.org.ru."
-  is_public        = true
-  private_networks = [module.network.vpc_id]
+  zone      = "dns-zone-${coalesce(var.folder_id, data.yandex_client_config.client.folder_id)}.org.ru."
+  is_public = true
 }
 
 module "address" {
@@ -62,4 +61,21 @@ module "address" {
     delete = "40m"
   }
 
+}
+
+module "internal_address" {
+  source = "../"
+
+  folder_id = coalesce(var.folder_id, data.yandex_client_config.client.folder_id)
+
+  name        = "test-internal-address"
+  description = "Example internal address description"
+  labels = {
+    environment = "production"
+  }
+
+  internal_ipv4_address = {
+    subnet_id = module.network.private_subnets_ids[0]
+    address   = "10.10.0.100"
+  }
 }

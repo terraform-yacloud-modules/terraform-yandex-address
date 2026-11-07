@@ -30,12 +30,22 @@ output "deletion_protection" {
 
 output "external_ipv4_address" {
   description = "The actual IPv4 address value of the allocated static external IP address."
-  value       = yandex_vpc_address.address.external_ipv4_address[0].address
+  value       = try(yandex_vpc_address.address.external_ipv4_address[0].address, null)
 }
 
 output "external_ipv4" {
   description = "Complete details of the external IPv4 address configuration, including address, zone, and other metadata."
   value       = yandex_vpc_address.address.external_ipv4_address
+}
+
+output "internal_ipv4_address" {
+  description = "The actual IPv4 address value of the allocated static internal IP address."
+  value       = try(yandex_vpc_address.address.internal_ipv4_address[0].address, null)
+}
+
+output "internal_ipv4" {
+  description = "Complete details of the internal IPv4 address configuration, including address and subnet."
+  value       = yandex_vpc_address.address.internal_ipv4_address
 }
 
 output "dns_record" {
