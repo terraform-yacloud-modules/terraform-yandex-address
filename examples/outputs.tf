@@ -43,6 +43,16 @@ output "dns_record" {
   value       = module.address.dns_record
 }
 
+output "internal_ipv4_address" {
+  description = "Internal IPv4 address of the allocated internal address"
+  value       = module.internal_address.internal_ipv4_address
+}
+
+output "internal_ipv4" {
+  description = "Internal IPv4 address details"
+  value       = module.internal_address.internal_ipv4
+}
+
 output "created_at" {
   description = "Creation timestamp of the allocated address"
   value       = module.address.created_at

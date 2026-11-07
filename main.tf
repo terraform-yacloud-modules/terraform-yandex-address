@@ -9,10 +9,21 @@ resource "yandex_vpc_address" "address" {
   deletion_protection = var.deletion_protection
 
 
-  external_ipv4_address {
-    zone_id                  = var.zone_id
-    ddos_protection_provider = var.ddos_protection_provider
-    outgoing_smtp_capability = var.outgoing_smtp_capability
+  dynamic "external_ipv4_address" {
+    for_each = var.internal_ipv4_address == null ? [1] : []
+    content {
+      zone_id                  = var.zone_id
+      ddos_protection_provider = var.ddos_protection_provider
+      outgoing_smtp_capability = var.outgoing_smtp_capability
+    }
+  }
+
+  dynamic "internal_ipv4_address" {
+    for_each = var.internal_ipv4_address == null ? [] : [var.internal_ipv4_address]
+    content {
+      subnet_id = internal_ipv4_address.value.subnet_id
+      address   = internal_ipv4_address.value.address
+    }
   }
 
   dynamic "dns_record" {
