@@ -1,3 +1,7 @@
+## v2.30.0 - 2026-11-10
+### Chores
+- faea935 chore(deps): bump bridgecrewio/checkov-action ([#84](https://github.com/terraform-yacloud-modules/terraform-yandex-address/pull/84))
+
 ## v2.29.0 - 2026-11-10
 ### Features
 - ef85b58 feat: add internal IPv4 address support ([#83](https://github.com/terraform-yacloud-modules/terraform-yandex-address/pull/83))
